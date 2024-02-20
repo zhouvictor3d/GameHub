@@ -19,4 +19,8 @@ public class SceneEventDefine
             UniEvent.SendMessage(msg);
         }
     }
+
+    public class ChangeToYooAssets:IEventMessage
+    {
+    }
 }

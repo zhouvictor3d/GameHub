@@ -30,6 +30,8 @@ public class GameManager
         // 注册监听事件
         _eventGroup.AddListener<SceneEventDefine.ChangeToHomeScene>(OnHandleEventMessage);
         _eventGroup.AddListener<SceneEventDefine.ChangeToBattleScene>(OnHandleEventMessage);
+        _eventGroup.AddListener<SceneEventDefine.ChangeToYooAssets>(OnHandleEventMessage);
+        
     }
 
     /// <summary>
@@ -45,13 +47,17 @@ public class GameManager
     /// </summary>
     private void OnHandleEventMessage(IEventMessage message)
     {
-        if (message is SceneEventDefine.ChangeToHomeScene)
+        switch (message)
         {
-            YooAssets.LoadSceneAsync("scene_home");
-        }
-        else if (message is SceneEventDefine.ChangeToBattleScene)
-        {
-            YooAssets.LoadSceneAsync("scene_battle");
+            case SceneEventDefine.ChangeToHomeScene:
+                YooAssets.LoadSceneAsync("scene_home");
+                break;
+            case SceneEventDefine.ChangeToBattleScene:
+                YooAssets.LoadSceneAsync("scene_battle");
+                break;
+            case SceneEventDefine.ChangeToYooAssets:
+                YooAssets.LoadSceneAsync("scene_yooassets");
+                break;
         }
     }
 }
