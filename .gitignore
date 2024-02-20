@@ -1,0 +1,8 @@
+obj
+obj/Debug
+*.csproj
+*.sln
+Library/
+Logs
+Temp
+Bundles
